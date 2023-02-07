@@ -1,0 +1,303 @@
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+% DO NOT MOVE THOSE PACKAGES OR IT WILL NOT WORK
+
+\documentclass[
+	a4paper,
+	% 9pt,
+	% sidesectionsize=Large,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sidetextcolor=green,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+	% logowidth=4.5cm,
+	% logospace=5mm,
+	% logoposition=before,
+	% sidebarplacement=right,
+	% datecolwidth=0.22\textwidth,
+]{killme}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% use a sans serif font as default
+\usepackage[sfdefault]{ClearSans}
+% \usepackage[sfdefault]{noto}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	% \newfontfamily\headingfont[Path=fonts/]{segoeuib.ttf} % use local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Пепеляев Максим}
+% job title/career
+\cvjobtitle{Младший разработчик,\\[0.2em] Студент НИУ ВШЭ}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/profile.png}
+% logo picture
+%\cvlogopic{pics/logo_txt.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{05.06.1999, \getage{05/06/1999} года} %%% TODO - make so that "года" is changed to a proper form automatically
+
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Россия, Пермь}{https://www.google.com/maps/place/Perm,+Perm+Krai/data=!4m2!3m1!1s0x43e8c6e1d886f20b:0x9b4aca02b87a8a0e?sa=X&ved=2ahUKEwi3qor_vYH9AhUPxosKHWe_AjEQ8gF6BAgdEAI}
+
+% phone number
+\cvphone{+7 996 082 72 94}
+
+% personal website
+%\cvsite{https://fagscience.net}
+
+% email address
+\cvmail{makspepe7@gmail.com}
+
+% any other custom entry
+%\cvcustomdata{\faFlag}{Uganda}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% colors to use in bubbles at the bottom of the page
+\definecolor{pastelgreen}{HTML}{D7ECD9}
+\definecolor{pastelpurple}{HTML}{D5D6EA}
+\definecolor{pastelorange}{HTML}{F5D5CB}
+\definecolor{pastelyellow}{HTML}{F6F6EB}
+
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	\graphicspath{{pics/flags/}}
+
+	% social network accounts incl. proper hyperlinks
+	%\sidesection{Социальные Сети}
+		\begin{icontable}{1.7em}{0.4em}
+			\social{\faGithub}
+				{https://github.com/makspepe}
+				{makspepe}
+		\end{icontable}
+  		\begin{icontable}{1.7em}{0.4em} 
+			\social{\faLinkedin}
+				{https://www.linkedin.com/in/makspepe/}
+				{makspepe}
+		\end{icontable}
+    	\begin{icontable}{1.7em}{0.4em}
+			\social{\faPaperPlane }
+				{https://t.me/maxpepe7}
+				{maxpepe7}
+		\end{icontable}
+
+	\sidesection{Языки}
+        \pointskill{\flag{United-Kingdom.png}}{Английский}{5}[6]
+        \vspace{-1ex}\raggedleft{\color{maincolor}C1 Продвинутый}\par
+		\pointskill{\flag{Germany.png}}{Немецкий}{3}[6]
+        \vspace{-1ex}\raggedleft{\color{maincolor}B1 Средний}\par
+		\pointskill{\flag{China.png}}{Китайский}{1}
+        \vspace{-1ex}\raggedleft{\color{maincolor}А1 Начальный}\par
+
+	\sidesection{Навыки} 
+ 		\pointskill{\faCode}{C\#}{3}[6]
+          	\skill[1.6em]{\faCompress}{Unity}
+ 		\pointskill{\faCode}{C++}{2}[6]
+            \skill[1.6em]{\faCompress}{UE}
+ 		\pointskill{\faCode}{Python}{2}[6]
+             \skill[1.6em]{\faCompress}{numpy, scikit, pandas}
+ 		%\pointskill{\faCode}{Java}{1}[6]
+        \pointskill{\faDatabase}{SQL}{2}[6]
+            \skill[1.6em]{\faCompress}{Postgre, MySQL}
+        \pointskill{\faColumns}{LaTeX}{2}[6]
+        \skill{\faCodeBranch}{Git}
+        
+        \sidesection{Качества} 
+        \raggedright{\chartlabel[pastelgreen]{Внимание к деталям}\chartlabel[pastelgreen]{Лидерство}\chartlabel[pastelorange]{Творческий взгляд}\chartlabel[pastelorange]{Адаптивность}\chartlabel[pastelpurple]{Решение проблем}} 
+}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+
+\addtobacksidebar{
+	
+	% \begin{figure}\centering
+	% 	\smartdiagram[bubble diagram]{
+	% 		\textcolor{sidecolor}{\textbf{Being a}} \\
+	% 		\textcolor{sidecolor}{\textbf{Retard}}, % center bubble
+	% 		\textcolor{sidecolor!90}{Eating},
+	% 		\textcolor{sidecolor!90}{Sleeping},
+	% 		\textcolor{sidecolor!90}{Rolling},
+	% 		\textcolor{sidecolor!90}{Playing},
+	% 		\textcolor{sidecolor!90}{Chilling}
+	% 	}
+	% \end{figure}
+
+	% \chartlabel{Wheel Chart}
+
+	% \wheelchart{3.7em}{2em}{%
+	% 20/3em/sidecolor!50/Chill,
+	% 15/3em/sidecolor!15/Play,
+	% 30/4em/sidecolor!40/Sleep,
+	% 20/3em/sidecolor!20/Eat
+	% }
+
+	% \sidesection{Barskills}
+ %    	\barskill[1ex]{\faSkyatlas}{Wearing asian rice hats}{60}
+ %    	\barskill[2ex]{\faImage}{Playing Chess}{30}
+ %    	\barskill[3ex]{\faMusic}{Playing the bamboo flute}{50}
+
+	% \sidesection{Сертификаты}
+	% \begin{memberships}
+	% 	\membership[4em]{pics/stepik.png}{
+ %            \href{https://stepik.org/cert/1908072}{Программирование на Python (Stepik)}
+ %        }
+ %        \membership[4em]{pics/stepik.png}{
+ %            \href{https://stepik.org/cert/843179}{Введение в базы данных (Stepik)}
+ %        }
+	% 	\membership[4em]{pics/coursera.png}{
+ %            \href{https://www.coursera.org/account/accomplishments/verify/DZYQD8E4QSJ3}{Управление человеческими ресурсами (Coursera)}
+ %        }
+	% \end{memberships}
+}
+
+\discardpages{2}% Discard these pages. Render only 1 page
+
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+\makefrontsidebar
+
+\cvsection{\faGraduationCap \enskip Образование}
+\cvsubsection{Бакалавриат}
+\begin{cvtable}[1.5]
+	\cvitem{09/2019 -- 06/2023}{Программная инженерия GPA:8.0/10}{Высшая Школа Экономики (ВШЭ)}
+	   {\par % без par он съедает первых параграф, только блять тут, я не знаю что сломано и мне похуй
+        Основные темы: алгоритмы, управление программными проектами, проектирование и архитектура программного обеспечения, системы баз данных, машинное обучение, UX и написание документации.\par \vspace{0.1cm}
+        Языки, используемые в практических заданиях и групповых проектах: C\#, C++, Assembler, Python, R, Java, JavaScript.\par 
+        %Проходил обучение на факультативах по английскому языки и началам китайского языка. 
+        %В факультатив по английскому входили устная и письменная речь в академическом контексте, перевод в профессиональном контексте. \par
+        \vspace{0.15cm}} 
+  	\cvitem{}{Выпускная квалификационная работа}{Высшая Школа Экономики (ВШЭ)}
+		{Разработка инструмента для создания игровых уровней с использованием генеративных нейронных сетей.}
+\end{cvtable}
+
+\cvsubsection{Дополнительный профиль}
+\begin{cvtable}[1.5]
+	\cvitem{09/2020 -- 06/2022}{Майнор «Менеджмент» GPA:9.3/10}{Высшая Школа Экономики (ВШЭ)}
+		{\par
+        Основные темы: планирование, стратегический и операционный менеджмент, управление человеческими ресурсами и конфликтами, управление проектами, маркетинг.\par \vspace{0.1cm}
+        Сформировал и руководил командой для опроса студентов, связи с преподавателями и корректировки траектории обучения в зависимости от результатов опросов.}
+\end{cvtable}
+
+\cvsection{\faBriefcase \enskip Мои проекты}
+\begin{cvtable}
+    \cvitem{12/2022 -- 06/2023}{Инструмент для создания игровых уровней с помощью генеративных нейронных сетей}{}{
+    Обучение GAN на играх с похожим дизайном уровней, возможностью задавать параметры генерируемых уровней, модуль экспорта в редакторы UE и Unity.\vspace{0.15cm}}
+    \cvitem{06/2022 -- 09/2022}{Разработка многопользовательского шутера | UE5}{}{
+Система конпенсациии задержки сети на стороне клиента, настраиваемые режимы игры, редактор уровней.\vspace{0.15cm}}
+    \cvitem{12/2021 -- 04/2022}{Разработка roguelike-игры | Unity}{}{
+Роглайк шутер, процедурно генерируемые уровни, пазлы, инструменты для модификации.\vspace{0.15cm}}
+	\cvitem{01/2020 -- 04/2020}{Нейронная сеть для автомобиля | Unity}{}{
+ Глубинная нейронная сеть на C\#,  обучение с подкреплением соревнованием 20 машин на трассе в Unity.}
+
+\end{cvtable}
+
+\cvsection{\faBlackTie \enskip Опыт работы}
+\begin{cvtable}
+	\cvitem{05/2022 -- 06/2022}{Стажер в лаборатории ВШЭ}{Высшая Школа Экономики (ВШЭ)}{
+Инструмент на HSE API: сбор данных с сайтов и API, форматирование информации, отправка данных в зависимости от аргументов запроса.}
+\end{cvtable}
+
+\cvsection{\faRocket \enskip Внеучебная деятельность}
+\begin{cvtable}
+    \cvitemshort{Моддинг}{Декомпиляция и модификация множества видео игр. Создание полноценных модов, инструментов, коллаб для: Mount \& Blade, Total War: Warhammer 2, Dawn of War, STALKER Anomaly, Rimworld, Slay the Spire.\vspace{0.15cm}} 
+	\cvitemshort{Видео}{Создание видеороликов, творческие эксперименты с исследованием различных форм повествования.\vspace{0.15cm}}
+	\cvitemshort{Музыка}{Начинающий аудиоинженер и композитор, 15+ композиций, в основном с использованием синтезатора и электрогитары.\vspace{0.15cm}}
+	\cvitemshort{Обучение}{Написание углубленных руководств по использованию программных инструментов, моддингу, игровым стратегиям.}
+\end{cvtable}
+
+% \cvsection{Publications}
+% \begin{cvtable}
+% 	\cvpubitem{Cooking: 100 recipes for lazy Pandas}{Me and My Imaginary Friends}
+% 		{Culinary World}{2030}
+% \end{cvtable}
+
+% \cvsection{Awards}
+% \begin{cvtable}
+% 	\cvitem{2019 -- now}{Retard of the Year}{Gaymer World Forum}{}
+% 	\cvitem{2016 -- now}{Face of World Wide Fund for Retards}{WWF}{}
+% \end{cvtable}
+
+%-------------------------------------------------------------------------------
+%                           SECOND PAGE
+%-------------------------------------------------------------------------------
+%\newpage 
+%\makebacksidebar 
+
+
+% \newgeometry{
+% 	top=\topbottommargin,
+% 	bottom=\topbottommargin,
+% 	right=\leftrightmargin,
+% 	left=\leftrightmargin
+% }
+
+% \cvsection{section}
+% \cvsubsection{Subsection}
+% \begin{cvtable}
+% 	\cvitem{<dates>}{<cv-item title>}{<location>}{<optional: description>}
+% \end{cvtable}
+\cvsignature
+
+\end{document}
